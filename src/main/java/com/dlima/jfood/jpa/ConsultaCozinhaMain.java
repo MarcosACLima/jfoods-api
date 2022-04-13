@@ -8,6 +8,7 @@ import org.springframework.context.ApplicationContext;
 
 import com.dlima.jfood.JfoodApiApplication;
 import com.dlima.jfood.domain.model.Cozinha;
+import com.dlima.jfood.domain.repository.CozinhaRepository;
 
 public class ConsultaCozinhaMain {
 
@@ -18,11 +19,11 @@ public class ConsultaCozinhaMain {
 				.run(args);
 		
 		// Instancia de Cadastro Cozinha
-		CadastroCozinha cadastroCozinha = applicationContext.getBean(CadastroCozinha.class);
+		CozinhaRepository cozinhas = applicationContext.getBean(CozinhaRepository.class);
 
-		List<Cozinha> cozinhas = cadastroCozinha.listar();
+		List<Cozinha> todasCozinhas = cozinhas.todas();
 		
-		for (Cozinha cozinha : cozinhas) {
+		for (Cozinha cozinha : todasCozinhas) {
 			System.out.println(cozinha.getNome());
 		}
 		

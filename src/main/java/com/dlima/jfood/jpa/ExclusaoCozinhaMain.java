@@ -6,6 +6,7 @@ import org.springframework.context.ApplicationContext;
 
 import com.dlima.jfood.JfoodApiApplication;
 import com.dlima.jfood.domain.model.Cozinha;
+import com.dlima.jfood.domain.repository.CozinhaRepository;
 
 public class ExclusaoCozinhaMain {
 
@@ -15,12 +16,12 @@ public class ExclusaoCozinhaMain {
 				.run(args);
 		
 		// Instancia de Cadastro Cozinha
-		CadastroCozinha cadastroCozinha = applicationContext.getBean(CadastroCozinha.class);
+		CozinhaRepository cozinhas = applicationContext.getBean(CozinhaRepository.class);
 
 		Cozinha cozinha = new Cozinha();
 		cozinha.setId(1L);
 		
-		cadastroCozinha.remove(cozinha);
+		cozinhas.remover(cozinha);
 		
 	}
 

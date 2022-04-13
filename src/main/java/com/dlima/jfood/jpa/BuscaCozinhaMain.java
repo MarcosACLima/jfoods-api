@@ -6,6 +6,7 @@ import org.springframework.context.ApplicationContext;
 
 import com.dlima.jfood.JfoodApiApplication;
 import com.dlima.jfood.domain.model.Cozinha;
+import com.dlima.jfood.domain.repository.CozinhaRepository;
 
 public class BuscaCozinhaMain {
 
@@ -16,9 +17,9 @@ public class BuscaCozinhaMain {
 				.run(args);
 		
 		// Instancia de Cadastro Cozinha
-		CadastroCozinha cadastroCozinha = applicationContext.getBean(CadastroCozinha.class);
+		CozinhaRepository cozinhaRepository = applicationContext.getBean(CozinhaRepository.class);
 
-		Cozinha cozinha = cadastroCozinha.buscar(1L);
+		Cozinha cozinha = cozinhaRepository.porId(1L);
 		
 		System.out.println(cozinha.getNome());
 		
