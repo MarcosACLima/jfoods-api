@@ -15,7 +15,9 @@
 - Devtools
 - JPA Database
 - Hibernate
+- Lombok
 
 ### Ferramentas
 
 - Spring Tool Suite
+- Postman
