@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.dlima.jfood.api.model.CozinhasXmlWrapper;
 import com.dlima.jfood.domain.model.Cozinha;
 import com.dlima.jfood.domain.repository.CozinhaRepository;
+import com.dlima.jfood.domain.service.CadastroCozinhaService;
 
 @RestController
 @RequestMapping("/cozinhas")
@@ -28,6 +29,9 @@ public class CozinhaController {
 
 	@Autowired
 	private CozinhaRepository cozinhaRepository;
+	
+	@Autowired
+	private CadastroCozinhaService cozinhaService;
 
 	@GetMapping
 	public List<Cozinha> listar() {
@@ -56,7 +60,7 @@ public class CozinhaController {
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED) // 201 Created
 	public Cozinha adicionar(@RequestBody Cozinha cozinha) {
-		return cozinhaRepository.salvar(cozinha);
+		return cozinhaService.salvar(cozinha);
 	}
 
 	
@@ -92,6 +96,5 @@ public class CozinhaController {
 		}
 		
 	}
-
 
 }
