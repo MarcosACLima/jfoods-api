@@ -24,7 +24,7 @@ public class Cozinha {
 	private Long id;
 	
 //	@JsonIgnore
-	@JsonProperty("titulo") // mudar nome da representacao
+//	@JsonProperty("titulo") // mudar nome da representacao
 	@Column(nullable = false)
 	private String nome;
 
